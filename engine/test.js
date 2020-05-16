@@ -3,8 +3,8 @@ let {minMax, bestMove} = require("../minmax/algo");
 
 module.exports.test = () => {
 	
-	let board = [2,1,0,
-				 0,1,0,
+	let board = [0,1,1,
+				 0,2,2,
 				 0,2,2];
 	/*console.log(board);
 	let board2 = engine.copyBoard(board);

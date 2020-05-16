@@ -15,15 +15,16 @@ module.exports.minMax = (board, turn) => {
 	return prices;
 }
 
-function recursive(board, turn, i){
+function recursive(board, turn, ad){
 	let moves = engine.getNone(board);
 
 	//console.log(moves);
 	let win = engine.win(board);
+
 	if (win == engine.CROSS) {
-		return 100*i;
+		return 100/ad;
 	} else if (win == engine.CIRCLE) {
-		return -100/i;
+		return -100/ad;
 	} else if (moves.length == 0){
 		return 0;
 	}
@@ -34,7 +35,12 @@ function recursive(board, turn, i){
 		newBoard[moves[i]] = turn;
 		//engine.display(newBoard);
 		
-		prices[moves[i]] = recursive(newBoard, engine.nextTurn(turn), i+0.1);
+		prices[moves[i]] = recursive(newBoard, engine.nextTurn(turn), ad+1);
+	}
+
+	if (ad==1){
+		engine.display(board);
+		console.log(prices);
 	}
 	//console.log(prices);
 	

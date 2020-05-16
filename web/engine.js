@@ -1,24 +1,12 @@
-module.exports.newBoard = () => {
+let newBoard = () => {
 	return [0,0,0,0,0,0,0,0,0];
 }
 
-module.exports.boardFromUrl = (board) => {
-	let newBoard = board.split("").map((value) => parseInt(value));
-	newBoard = newBoard.filter((value) => {
-		return (value == 0 || value == 1 || value == 2)
-	});
-	console.log(newBoard);
-	if (newBoard.length != 9){
-		throw new Error("Bad board value");
-	}
-	return newBoard;
-}
-
-module.exports.copyBoard = (board) => {
+let copyBoard = (board) => {
 	return board.slice();
 }
 
-module.exports.win = (board) =>{
+let win = (board) =>{
 	if (board[0] == board[1] && board[1] == board[2] && board[0] !=0){
 		return board[0];
 	} 
@@ -49,7 +37,7 @@ module.exports.win = (board) =>{
 	return 0;
 }
 
-module.exports.nextTurn = (turn) => {
+let nextTurn = (turn) => {
 	if (turn == 1){
 		return 2;
 	} else if (turn == 2){
@@ -58,7 +46,7 @@ module.exports.nextTurn = (turn) => {
 	return 0;
 }
 
-module.exports.getNone = (board) => {
+let getNone = (board) => {
 	let vals = [];
 	for (let i in board){
 		if (board[i] == 0){
@@ -68,7 +56,7 @@ module.exports.getNone = (board) => {
 	return vals;
 }
 
-module.exports.display = (board) => {
+let display = (board) => {
 	let d = "";
 	for (let i in board){
 		d += getChar(board[i])+' ';
@@ -79,9 +67,9 @@ module.exports.display = (board) => {
 	console.log(d);
 }
 
-module.exports.NONE = 0;
-module.exports.CROSS = 1;
-module.exports.CIRCLE = 2;
+let NONE = 0;
+let CROSS = 1;
+let CIRCLE = 2;
 
 function getChar(code) {
 	if (code == 1){
@@ -89,6 +77,6 @@ function getChar(code) {
 	} else if (code == 2){
 		return 'O';
 	} else {
-		return '-';
+		return ' ';
 	}
 }
