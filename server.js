@@ -23,6 +23,9 @@ app.get('/index.js', function (req, res) {
 app.get('/engine.js', function (req, res) {
 	res.sendFile(path.join(__dirname + '/web/engine.js'));
 });
+app.get('/font', function (req, res) {
+	res.sendFile(path.join(__dirname + '/web/font/font.ttf'));
+});
 
 //=========================
 // MinMax API

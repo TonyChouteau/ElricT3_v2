@@ -38,10 +38,10 @@ function recursive(board, turn, ad){
 		prices[moves[i]] = recursive(newBoard, engine.nextTurn(turn), ad+1);
 	}
 
-	if (ad==1){
+	/*if (ad==1){
 		engine.display(board);
 		console.log(prices);
-	}
+	}*/
 	//console.log(prices);
 	
 	//console.log(prices);
