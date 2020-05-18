@@ -50,11 +50,13 @@ function reset(){
 }
 
 function mouseClicked(event){
+	console.log("x", played);
 	if (event.target.id == "defaultCanvas0" && turn == playerTurn && !played) {
 		played = true;
-		turn = nextTurn(turn);
+		console.log("x1", played);
 		let index = Math.floor(mouseY/(height/3))*3+Math.floor(mouseX/(width/3));
 		if (board[index] == 0 && win(board) == NONE){
+			turn = nextTurn(turn);
 			board[index] = playerTurn;
 			console.log(window.location.href+"ai/"+board.join("")+"/"+turn);
 			if (win(board) == NONE && getNone(board).length != 0){
@@ -65,8 +67,13 @@ function mouseClicked(event){
 						board[data.choice] = data.turn;
 						turn = nextTurn(turn);
 						played = false;
+						console.log("x2", played);
 					})
+			} else {
+				played = false;
 			}
+		} else {
+			played = false;
 		}
 	}
 	if (event.target.id == "defaultCanvas0" && end == true){
