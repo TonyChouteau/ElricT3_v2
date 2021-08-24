@@ -49,7 +49,7 @@ app.get('/ai/:board/:turn', function (req, res) {
 	})
 });
 
-app.listen(8085);
+app.listen(3333);
 
 // let {test} = require("./engine/test");
 // test();
